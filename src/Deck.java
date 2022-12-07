@@ -32,19 +32,19 @@ public class Deck
 
         for (int i = 0; i < 4; i++)
         {
-            if (i = 0)
+            if (i == 0)
             {
                 x = "Clubs";
             }
-            if (i = 1)
+            if (i == 1)
             {
                 x = "Spades";
             }
-            if (i = 2)
+            if (i == 2)
             {
                 x = "Hearts";
             }
-            if (i = 3)
+            if (i == 3)
             {
                 x = "Diamonds";
             }
