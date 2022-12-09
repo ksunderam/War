@@ -6,9 +6,29 @@ public class Deck
     private int cardsLeft;
     private ArrayList<Card> pack;
 
-    public Deck()
+    //makes a deck of cards, initializing each card with ArrayLists for each component of the card
+    public Deck(ArrayList<String> rk, ArrayList<String> st, ArrayList<Integer> pt)
     {
-        pack = new ArrayList<Card>();
+        pack = new ArrayList<>();
+
+        for (int i = 0; i < 13; i++)
+        {
+            for (int j = 0; j < 4; j++)
+            {
+                Card x = new Card(rk.get(i), st.get(j), pt.get(i));
+                pack.add(x);
+            }
+        }
+        shuffle();
+        //System.out.println("\n|||\n" + rk);
+        //System.out.println(st);
+        //System.out.println(pt + "\n");
+        cardsLeft = pack.size();
+    }
+
+    /*public Deck()
+    {
+        pack = new ArrayList<>();
 
         for (int i = 2; i < 11; i++)
         {
@@ -61,7 +81,7 @@ public class Deck
             cardsLeft = pack.size();
         }
 
-    }
+    }*/
 
     public boolean isEmpty()
     {
@@ -75,17 +95,22 @@ public class Deck
 
     public void shuffle()
     {
+        //picks a random card do to a card wap, to shuffle
         int j = 0;
         for (int i = 0; i < pack.size(); i++)
         {
             j = (int)(Math.random() * (pack.size() - 1));
             Collections.swap(pack, i, j);
         }
-        cardsLeft = pack.size();
+        //cardsLeft = pack.size();
     }
 
     public Card deal()
     {
+        if (cardsLeft <= 0)
+        {
+            return null;
+        }
         --cardsLeft;
         return pack.get(cardsLeft);
     }

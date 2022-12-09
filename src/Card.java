@@ -4,6 +4,7 @@ public class Card
     private String suit;
     private int point;
 
+    //makes a card, with getters and setters
     public Card(String rk, String type, int val)
     {
         rank = rk;
